@@ -42,88 +42,135 @@ This project is part of Module 2 Assignment for DevOps course. It covers the fun
 
 ## How to Run the Project Locally
 
-Follow these steps to set up and run this project on your local machine:
+## Tech Stack
+
+- **Backend**: Python + Django
+- **Frontend**: Django Templates + Tailwind CSS (via CDN)
+- **Database**: SQLite (for local development)
+- **JavaScript**: Minimal JS for enhanced UX (toggle completion)
+
+## Setup Instructions
 
 ### Prerequisites
-- Git installed on your system
-- A GitHub account
-- Basic knowledge of terminal/command line
-- Python 3.x installed
+
+- Python 3.8 or higher
 - pip (Python package manager)
 
-### Setup Instructions
+### Installation
 
-1. **Clone the repository**
+1. **Clone or navigate to the project directory:**
    ```bash
-   git clone https://github.com/your-username/git-assignment.git
-   cd git-assignment
+   cd /path/to/todo_project
    ```
 
-2. **Verify the repository**
-   ```bash
-   git status
-   git log
-   ```
-
-3. **View all branches**
-   ```bash
-   git branch -a
-   ```
-
-4. **Switch between branches**
-   ```bash
-   git checkout main
-   git checkout feature-update
-   ```
-
-5. **Create a virtual environment (recommended)**
+2. **Create a virtual environment (recommended):**
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
-6. **Install dependencies**
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-7. **Run migrations**
+4. **Run migrations:**
    ```bash
    python manage.py migrate
    ```
 
-8. **Create a superuser (optional, for admin access)**
+5. **Create a superuser (optional, for admin access):**
    ```bash
    python manage.py createsuperuser
    ```
 
-9. **Run the development server**
+6. **Run the development server:**
    ```bash
    python manage.py runserver
    ```
 
-10. **Open your browser and navigate to**
-    ```
-    http://127.0.0.1:8000/
-    ```
+7. **Open your browser and navigate to:**
+   ```
+   http://127.0.0.1:8000/
+   ```
+   ![Git Setup](./Screenshot%202026-02-20%20at%206.29.56 AM.png)
 
-### Project Structure
+
+## Project Structure
+
 ```
-git-assignment/
-├── .git/
-├── .gitignore
-├── README.md
-├── requirements.txt
+todo_project/
 ├── manage.py
-├── venv/
-└── screenshots/
-    ├── Screenshot 2026-02-20 at 5.28.55 AM.png
-    ├── Screenshot 2026-02-20 at 5.33.55 AM.png
-    ├── Screenshot 2026-02-20 at 5.58.01 AM.png
-    ├── Screenshot 2026-02-20 at 5.59.54 AM.png
-    └── Screenshot 2026-02-20 at 5.46.16 AM.png
+├── requirements.txt
+├── README.md
+├── db.sqlite3          # SQLite database (created after migrate)
+├── todo_project/       # Project settings
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+├── tasks/              # Tasks app
+│   ├── __init__.py
+│   ├── models.py       # Task model
+│   ├── views.py        # CRUD views
+│   ├── forms.py        # Task form
+│   ├── urls.py         # App URLs
+│   ├── admin.py
+│   ├── tests.py        # Unit tests
+│   └── migrations/     # Database migrations
+└── templates/          # HTML templates
+    ├── base.html
+    └── tasks/
+        ├── task_list.html
+        ├── task_form.html
+        └── task_confirm_delete.html
 ```
 
-## Batch Information
-**Course:** DevOps with Git & GitHub
-**Batch:** Ostad_batch-09
+## Usage
+
+### Creating a Task
+
+1. Click the "+ New Task" button on the task list page
+2. Fill in the task title (required)
+3. Optionally add a description and due date
+4. Click "Create Task"
+
+### Managing Tasks
+
+- **View Tasks**: All tasks are displayed on the home page
+- **Filter Tasks**: Use the tabs (All/Active/Completed) to filter tasks
+- **Toggle Completion**: Click "Mark Complete" or "Mark Active" to toggle task status
+- **Edit Task**: Click the "Edit" button to modify a task
+- **Delete Task**: Click the "Delete" button and confirm deletion
+
+### Admin Interface
+
+Access the Django admin panel at `http://127.0.0.1:8000/admin/` (requires superuser account).
+![Git Setup](./Screenshot%202026-02-20%20at%206.37.49 AM.png)
+
+
+## Running Tests
+
+```bash
+python manage.py test
+```
+
+## Development
+
+### Making Changes
+
+1. **Model Changes**: After modifying `models.py`, run:
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+2. **Static Files**: This project uses Tailwind CSS via CDN, so no static file collection is needed for development.
+
+## License
+
+This project is open source and available for educational purposes.
+
+
+## Heroku live project host. 
