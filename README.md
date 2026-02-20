@@ -381,7 +381,7 @@ This project uses Tailwind CSS via CDN, so no static file collection is needed f
 [https://python-app-git-assignment-297318ca2d68.herokuapp.com](https://python-app-git-assignment-297318ca2d68.herokuapp.com)
 
 #### admin:
-[https://python-app-git-assignment-297318ca2d68.herokuapp.com](https://python-app-git-assignment-297318ca2d68.herokuapp.com)
+[https://python-app-git-assignment-297318ca2d68.herokuapp.com/admin](https://python-app-git-assignment-297318ca2d68.herokuapp.com/admin)
 
 ```
 user: hasan 
